@@ -297,6 +297,19 @@ class DashtrainingController extends Controller
         return Storage::download($taskreturn->slug);
     }
 
+    public function dataReturnTask($id){
+        $training['returntask'] = DB::table('task_training_return')
+                                ->join('dashboard.di_users','task_training_return.diuser_id','=','dashboard.di_users.id')
+                                ->select(
+                                    'dashboard.di_users.fname',
+                                    'task_training_return.id',
+                                    'task_training_return.return_task'
+                                )
+                                ->where('task_training_return.task_id',$id)
+                                ->get();
+        return $training;
+    }
+
     // EMPLOYEE
     public function deleteEmployee($diuser_id,$training_id){
         $actdel = DB::table('diuser_training')

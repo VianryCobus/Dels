@@ -215,6 +215,11 @@
                                             <a class="nav-link" href="#result" role="tab" data-toggle="tab">Result</a>
                                         </li>
                                     @endif
+                                    @if (session('isadmin'))
+                                        <li class="nav-item return_task">
+                                            <a class="nav-link" href="#returntask" role="tab" data-toggle="tab">Return Task</a>
+                                        </li>
+                                    @endif
                                 </ul>
                             </div>
                             <div class="tab-content my-4 row">
@@ -374,7 +379,7 @@
 
                                     </div>
                                 </div>
-                                <div id="result" role="tabpanel" class="tab-pane fade col-lg-12 border border-info p-3" style="border-radius:15px;"">
+                                <div id="result" role="tabpanel" class="tab-pane fade col-lg-12 border border-info p-3" style="border-radius:15px;">
                                     <div class="row" id="section-employees-table">
                                         <div class="col-lg-12">
                                             <table class="table table-bordered table-striped">
@@ -394,6 +399,11 @@
                                             </table>
                                         </div>
                                     </div>
+                                </div>
+                                <div id="returntask" role="tabpanel" class="tab-pane fade col-lg-12 border border-info p-3" style="border-radius:15px;">
+                                    <div class="row" id="section-rt-headers">
+                                    </div>
+                                    <div class="row" id="section-rt-lines"></div>
                                 </div>
                             </div>
                         </div>
@@ -460,6 +470,8 @@
                         if(result.tasks.length > 0){
                             createTableTask("#section-task-table",".tbody-tasktab#idtbody",result.tasks,result.task_user,"{{ route('dashtrainings.index') }}",isadmin);
                         } else{
+                            $("#returntask").hide();
+                            $(".nav-item.return_task").hide();
                             $("#section-task-table").html(`
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                     <div class="alert alert-danger">
@@ -481,6 +493,9 @@
                             });
                             // $('.select2').val(ddi).trigger('change');
                             $("form[name='frmDashTraining'] #employee").val(ddi).trigger('change');
+
+                            // UI Comopnents for return tasks
+                            createOptionTask(result.tasks,'#section-rt-headers');
                         }
                         // UI form general
                         $("form[name='frmDashTraining'] #training_id").val(result.id);
@@ -704,7 +719,7 @@
                 const url = $(this).data('url');
                 window.open(url);
             });
-            // download task file
+            // download return task file (user)
             $('#section-task-table').on('click','.btn-download-filereturntask',function(e){
                 e.preventDefault();
                 const url = $(this).data('url');
@@ -770,6 +785,35 @@
                     link = $("form[name='frmDashTraining'] #posttest_link").val();
                 }
                 window.open(link);
+            });
+
+            // change optiontasks on return task section
+            $("#returntask").on('change','#optiontasks',function(e){
+                e.preventDefault();
+                const idrt = $(this).val();
+                const prefix = "{{ route('dashtrainings.index') }}";
+                const urlx = `${prefix}/${idrt}/datareturntask`;
+                $.ajax({
+                    url: urlx,
+                    method: 'get',
+                    dataType: 'json',
+                    beforeSend: () => {
+                        $("#section-rt-lines").html(`<div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <div class="spinner-grow text-danger" style="width: 3rem; height: 3rem;" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>`);
+                    },
+                    success: result => createTableReturnTask(result.returntask,"#section-rt-lines",prefix)
+                });
+            });
+
+            // download return task file (admin)
+            $('#returntask').on('click','.btn-download-filereturntask',function(e){
+                e.preventDefault();
+                const url = $(this).data('url');
+                window.open(url);
             });
         });
     </script>

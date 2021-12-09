@@ -11,7 +11,7 @@ const createTableTask = (sectionHead,tbody,data,data_user,route,isadmin) => {
                                     ${(isadmin == 1) ? `<th>Download</th>` : '<th></th>'}
                                     ${(isadmin != 1) ? `<th>Send Return File</th>
                                                         <th>File Return Name</th>
-                                                        <th></th>` : false}
+                                                        <th></th>` : ''}
                                 </tr>
                             </thead>
                             <tbody class="tbody-tasktab" id="idtbody">
@@ -109,4 +109,58 @@ const createTableTask = (sectionHead,tbody,data,data_user,route,isadmin) => {
     //     }
     //     nofiletask++;
     // });
+}
+
+const createOptionTask = (tasks,section) => {
+    let options = `
+    <div class="col-lg-2">
+        <p class="h6 my-2 font-weight-bolder">Tasks List</p>
+    </div>
+    <div class="col-lg-10 d-flex justify-content-center">
+        <select id="optiontasks" class="form-control">
+            <option>-- Choose the task --</option>
+            ${tasks.map(val => `<option value="${val.id}">${val.task}</option>`)}
+        </select>
+    </div>`;
+    const sectionReturnTask = document.querySelector(section);
+    sectionReturnTask.innerHTML = options;
+}
+
+const createTableReturnTask = (data,section,prefix) => {
+    let nofiletask = 1;
+    let tHeaders = `<div class="col-lg-12 p-3">
+                        <p class="h6 my-2 font-weight-bolder">Data File Return Task</p>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="table-info">
+                                    <th>No</th>
+                                    <th>Employee</th>
+                                    <th>File Name</th>
+                                    <th>Download</th>
+                                </tr>
+                            </thead>
+                            <tbody class="tbody-returntasktab" id="idtbody">
+                            </tbody>
+                        </table>
+                    <div>`;
+    const sectionTableReturnTask = document.querySelector(section);
+    sectionTableReturnTask.innerHTML = tHeaders;
+
+    let tLines = ``;
+    $.each(data,(i,e) => {
+        tLines = `<tr>
+                    <td>${nofiletask}</td>
+                    <td>${e.fname}</td>
+                    <td>${e.return_task}</td>
+                    <td>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <button type="button" class="btn btn-info btn-download-filereturntask" id="${e.id}" data-url="${prefix}/${e.id}/downloadreturntask">
+                                <i class="fas fa-download"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>`;
+        $('.tbody-returntasktab#idtbody').append(tLines);
+        nofiletask++;
+    });
 }

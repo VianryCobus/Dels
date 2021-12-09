@@ -52,6 +52,7 @@ Route::prefix('dashtraining')->middleware('CheckAuthMiddleware')->group(function
     Route::delete('{id}/deletetask','DashtrainingController@deleteTask')->name('dashtrainings.deleteTask');
     Route::get('{id}/downloadtask','DashtrainingController@downloadTask')->name('dashtrainings.downloadTask');
     Route::get('{id}/downloadreturntask','DashtrainingController@downloadReturnTask')->name('dashtrainings.downloadReturnTask');
+    Route::get('{id}/datareturntask','DashtrainingController@dataReturnTask')->name('dashtrainings.dataReturn');
     // Employees
     Route::delete('{diuser_id}/{training_id}/deleteemployee','DashtrainingController@deleteEmployee')->name('dashtrainings.deleteEmployee');
     Route::get('{id}/showemployee','DashtrainingController@showEmployee')->name('dashtrainings.showEmployee');

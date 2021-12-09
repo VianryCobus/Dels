@@ -51,7 +51,7 @@ class AuthController extends Controller
                 return redirect('dashboard');
             }
         }
-        session()->flash('error','Email or Password has incorect');
+        session()->flash('error','Username or Password has incorect');
         return redirect('/');
     }
 
