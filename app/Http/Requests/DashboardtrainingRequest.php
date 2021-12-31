@@ -28,9 +28,9 @@ class DashboardtrainingRequest extends FormRequest
             'end_date' => 'required',
             'trainer_name' => 'required',
             'employee' => 'required',
-            'lesson' => 'max:2048',
-            'task' => 'max:2048',
-            'return_task' => 'max:2048'
+            'lesson' => 'max:20480|mimes:jpeg,bmp,png,jpg|mimetypes:video/avi,video/mpeg,video/quicktime,video/mp4',
+            'task' => 'max:20480|mimes:jpeg,bmp,png,jpg|mimetypes:video/avi,video/mpeg,video/quicktime,video/mp4',
+            'return_task' => 'max:20480|mimes:jpeg,bmp,png,jpg|mimetypes:video/avi,video/mpeg,video/quicktime,video/mp4'
         ];
     }
 }

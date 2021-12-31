@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="table-responsive my-3">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered table-responsive" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -57,6 +57,7 @@
                                 <td>
                                     <center>
                                         <i style="cursor:pointer;" class="fas fa-edit edit-category" data-url="{{ route('categories.show',$c->slug) }}" data-route="{{ route('categories.update',$c->slug) }}" data-toggle="modal" data-target="#tcModal"></i>
+
                                         <i style="cursor:pointer;" class="fas fa-trash delete-category" data-route="{{ route('categories.destroy',$c->slug) }}" data-toggle="modal" data-target="#tcModalDelete"></i>
                                     </center>
                                 </td>

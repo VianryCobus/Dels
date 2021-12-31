@@ -14,65 +14,67 @@
                 <div class="card_body">
                     <form name="frmFilterTraining" action="{{ route('trainings.search') }}" method="post" autocomplete="off">
                         @csrf
-                        <div class="row my-3">
-                            <div class="col-md-3 d-flex justify-content-end align-items-center font-weight-bolder text-monospace">
-                                Training Name
+                        <div class="container">
+                            <div class="row my-3">
+                                <div class="col-md-3 col-6 mb-3 d-flex justify-content-center align-items-center font-weight-bolder text-monospace">
+                                    Training Name
+                                </div>
+                                <div class="col-md-1 col-1 mb-3 d-flex justify-content-center align-items-center">
+                                    <strong>:</strong>
+                                </div>
+                                <div class="col-md-6 col-12 d-flex justify-content-center align-items-center">
+                                    <input type="text" name="filtername" id="filtername" class="form-control" placeholder="Training Name"
+                                        @if(!empty($request['filtername']))
+                                            value="{{ $request['filtername'] }}"
+                                        @endif;
+                                    >
+                                </div>
                             </div>
-                            <div class="col-md-1 d-flex justify-content-center align-items-center">
-                                <strong>:</strong>
+                            <div class="row my-3">
+                                <div class="col-md-3 col-6 mb-3 d-flex justify-content-center align-items-center font-weight-bolder text-monospace">
+                                    Trainer Name
+                                </div>
+                                <div class="col-md-1 col-1 mb-3 d-flex justify-content-center align-items-center">
+                                    <strong>:</strong>
+                                </div>
+                                <div class="col-md-6 col-12 d-flex justify-content-center align-items-center">
+                                    <input type="text" name="filtertrainer" id="filtertrainer" class="form-control" placeholder="Trainer Name"
+                                        @if(!empty($request['filtertrainer']))
+                                            value="{{ $request['filtertrainer'] }}"
+                                        @endif;
+                                    >
+                                </div>
                             </div>
-                            <div class="col-md-6 d-flex justify-content-center align-items-center">
-                                <input type="text" name="filtername" id="filtername" class="form-control" placeholder="Training Name"
-                                    @if(!empty($request['filtername']))
-                                        value="{{ $request['filtername'] }}"
-                                    @endif;
-                                >
+                            <div class="row my-3">
+                                <div class="col-md-3 col-6 mb-3 d-flex justify-content-center align-items-center font-weight-bolder text-monospace">
+                                    Category
+                                </div>
+                                <div class="col-md-1 col-1 mb-3 d-flex justify-content-center align-items-center">
+                                    <strong>:</strong>
+                                </div>
+                                <div class="col-md-6 col-12 mb-3 d-flex justify-content-center align-items-center">
+                                    <select name="filtercategory" id="filtercategory" class="form-control">
+                                        <option value="">Choose One!</option>
+                                        @foreach ($categories as $c)
+                                            <option value="{{ $c->id }}"
+                                                @if (!empty($request['filtercategory']))
+                                                    @if($c->id == $request['filtercategory']))
+                                                        selected
+                                                    @endif;
+                                                @endif
+                                            >{{ $c->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row my-3">
-                            <div class="col-md-3 d-flex justify-content-end align-items-center font-weight-bolder text-monospace">
-                                Trainer Name
-                            </div>
-                            <div class="col-md-1 d-flex justify-content-center align-items-center">
-                                <strong>:</strong>
-                            </div>
-                            <div class="col-md-6 d-flex justify-content-center align-items-center">
-                                <input type="text" name="filtertrainer" id="filtertrainer" class="form-control" placeholder="Trainer Name"
-                                    @if(!empty($request['filtertrainer']))
-                                        value="{{ $request['filtertrainer'] }}"
-                                    @endif;
-                                >
-                            </div>
-                        </div>
-                        <div class="row my-3">
-                            <div class="col-md-3 d-flex justify-content-end align-items-center font-weight-bolder text-monospace">
-                                Category
-                            </div>
-                            <div class="col-md-1 d-flex justify-content-center align-items-center">
-                                <strong>:</strong>
-                            </div>
-                            <div class="col-md-6 d-flex justify-content-center align-items-center">
-                                <select name="filtercategory" id="filtercategory" class="form-control">
-                                    <option value="">Choose One!</option>
-                                    @foreach ($categories as $c)
-                                        <option value="{{ $c->id }}"
-                                            @if (!empty($request['filtercategory']))
-                                                @if($c->id == $request['filtercategory']))
-                                                    selected
-                                                @endif;
-                                            @endif
-                                        >{{ $c->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row my-3">
-                            <div class="col-md-3 d-flex justify-content-end align-items-center">
-                            </div>
-                            <div class="col-md-1 d-flex justify-content-center align-items-center">
-                            </div>
-                            <div class="col-md-7 d-flex justify-content-start align-items-center">
-                                <button type="submit" class="btn btn-info">Search</button>
+                            <div class="row my-3">
+                                <div class="col-md-3 d-flex justify-content-end align-items-center">
+                                </div>
+                                <div class="col-md-1 d-flex justify-content-center align-items-center">
+                                </div>
+                                <div class="col-md-7 d-flex justify-content-start align-items-center">
+                                    <button type="submit" class="btn btn-info">Search</button>
+                                </div>
                             </div>
                         </div>
                     </form>

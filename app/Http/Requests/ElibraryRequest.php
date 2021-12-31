@@ -26,7 +26,7 @@ class ElibraryRequest extends FormRequest
         return [
             'title' => 'required',
             'status' => 'required',
-            'elibrary' => 'file|mimes:pdf|max:2048'
+            'elibrary' => 'file|mimes:pdf|max:20480'
         ];
     }
 }

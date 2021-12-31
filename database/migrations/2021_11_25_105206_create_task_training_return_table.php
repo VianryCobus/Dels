@@ -15,8 +15,9 @@ class CreateTaskTrainingReturnTable extends Migration
     {
         Schema::create('task_training_return', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('task_id')->constrained('task_training');
-            $table->foreignId('diuser_id');
+            // $table->foreignId('task_id')->constrained('task_training');
+            $table->foreignId('task_id')->nullable();
+            $table->foreignId('diuser_id')->nullable();
             $table->string('return_task');
             $table->string('slug',191);
             $table->timestamps();

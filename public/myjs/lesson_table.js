@@ -3,7 +3,7 @@ function createTableLesson(sectionHead,tbody,data,route,isadmin){
     $(sectionHead).html(`
         <div class="col-lg-12 p-3">
             <p class="h6 my-2 font-weight-bolder">Data File Lesson</p>
-            <table class="table table-bordered">
+            <table class="table table-bordered table-responsive">
                 <thead>
                     <tr class="table-info">
                         <th>No</th>

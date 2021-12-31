@@ -64,15 +64,18 @@ class DashtrainingController extends Controller
                 'end_date' => 'required',
                 'trainer_name' => 'required',
                 'employee' => 'required',
-                'lesson' => 'max:2048',
-                'task' => 'max:2048'
+                'lesson' => 'max:20480',
+                'task' => 'max:20480'
             ]);
 
             // TASK IN TRAINING ==============================================================
             if($request->file('task')) :
                 $tasks = [];
                 foreach ($request->file('task') as $value) {
-                    $urlfile = $value->store("dashtraining/task");
+                    // var date for make name of file is unique
+                    $dates = date('YmdHis');
+                    // $urlfile = $value->store("dashtraining/task");
+                    $urlfile = $value->storeAs("dashtraining/task","{$dates}_{$value->getClientOriginalName()}");
                     $tasks[] = [
                         'training_id' => $request->training_id,
                         'task' => $value->getClientOriginalName(),
@@ -89,7 +92,10 @@ class DashtrainingController extends Controller
                 if($request->file('lesson')) :
                     $lessons = [];
                     foreach ($request->file('lesson') as $value) {
-                        $urlfile = $value->store("dashtraining/lesson");
+                        // var date for make name of file is unique
+                        $dates = date('YmdHis');
+                        // $urlfile = $value->store("dashtraining/lesson");
+                        $urlfile = $value->storeAs("dashtraining/lesson","{$dates}_{$value->getClientOriginalName()}");
                         $lessons[] = [
                             'training_id' => $request->training_id,
                             'lesson' => $value->getClientOriginalName(),

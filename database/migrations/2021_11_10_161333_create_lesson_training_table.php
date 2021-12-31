@@ -15,7 +15,8 @@ class CreateLessonTrainingTable extends Migration
     {
         Schema::create('lesson_training', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('training_id')->constrained('trainings');
+            // $table->foreignId('training_id')->constrained('trainings');
+            $table->foreignId('training_id')->nullable();
             $table->string('lesson');
             $table->string('slug',191);
         });

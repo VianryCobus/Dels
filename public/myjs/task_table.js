@@ -3,7 +3,7 @@ const createTableTask = (sectionHead,tbody,data,data_user,route,isadmin) => {
     // template or string Literals
     let tHeaders = `<div class="col-lg-12 p-3">
                         <p class="h6 my-2 font-weight-bolder">Data File Task</p>
-                        <table class="table table-bordered">
+                        <table class="table table-bordered table-responsive">
                             <thead>
                                 <tr class="table-info">
                                     <th>No</th>
@@ -118,7 +118,7 @@ const createOptionTask = (tasks,section) => {
     </div>
     <div class="col-lg-10 d-flex justify-content-center">
         <select id="optiontasks" class="form-control">
-            <option>-- Choose the task --</option>
+            <option value="">-- Choose the task --</option>
             ${tasks.map(val => `<option value="${val.id}">${val.task}</option>`)}
         </select>
     </div>`;
@@ -130,7 +130,7 @@ const createTableReturnTask = (data,section,prefix) => {
     let nofiletask = 1;
     let tHeaders = `<div class="col-lg-12 p-3">
                         <p class="h6 my-2 font-weight-bolder">Data File Return Task</p>
-                        <table class="table table-bordered">
+                        <table class="table table-bordered table-responsive">
                             <thead>
                                 <tr class="table-info">
                                     <th>No</th>

@@ -15,7 +15,8 @@ class CreateDiuserTrainingTable extends Migration
     {
         Schema::create('diuser_training', function (Blueprint $table) {
             $table->foreignId('diuser_id');
-            $table->foreignId('training_id')->constrained('trainings');
+            // $table->foreignId('training_id')->constrained('trainings');
+            $table->foreignId('training_id')->nullable();
             $table->bigInteger('pretest')->nullable();
             $table->bigInteger('posttest')->nullable();
             $table->boolean('final_value')->nullable();

@@ -146,24 +146,24 @@
                     <div class="modal-body">
                         <div class="container">
                             <div class="row">
-                                <div class="form-group col-lg-1 d-flex justify-content-center align-items-center">
+                                <div class="form-group col-lg-1 col-2 d-flex justify-content-center align-items-center">
                                     Category
                                 </div>
-                                <div class="form-group col-lg-1 font-weight-bold d-flex justify-content-center align-items-center">
+                                <div class="form-group col-lg-1 col-1 font-weight-bold d-flex justify-content-center align-items-center">
                                     :
                                 </div>
-                                <div class="form-group col-lg-6">
+                                <div class="form-group col-lg-6 col-9">
                                     <input type="text" name="category" id="category" class="form-control" readonly>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="form-group col-lg-1 d-flex justify-content-center align-items-center">
+                                <div class="form-group col-lg-1 col-2 d-flex justify-content-center align-items-center">
                                     Name
                                 </div>
-                                <div class="form-group col-lg-1 font-weight-bold d-flex justify-content-center align-items-center">
+                                <div class="form-group col-lg-1 col-1 font-weight-bold d-flex justify-content-center align-items-center">
                                     :
                                 </div>
-                                <div class="form-group col-lg-6">
+                                <div class="form-group col-lg-6 col-9">
                                     <input type="text" name="name" id="name" class="form-control" readonly>
                                 </div>
                             </div>
@@ -262,11 +262,11 @@
                                     <div id="employee" role="tabpanel" class="tab-pane fade col-lg-12 border border-info p-3" style="border-radius:15px;">
                                         <div class="form-group">
                                             <div class="row">
-                                                <div class="col-lg-2 d-flex justify-content-end align-items-center">
+                                                <div class="col-lg-2 col-6 mb-2 d-flex justify-content-end align-items-center">
                                                     Employee Name
                                                 </div>
-                                                <div class="col-lg-1 d-flex justify-content-center align-items-center font-weight-bolder">:</div>
-                                                <div class="col-lg-9 d-flex justify-content-center align-items-center">
+                                                <div class="col-lg-1 col-1 mb-2 d-flex justify-content-center align-items-center font-weight-bolder">:</div>
+                                                <div class="col-lg-9 col-12 d-flex justify-content-center align-items-center">
                                                     <select name="employee[]" id="employee" class="form-control select2" style="width:100%;" multiple>
                                                         @foreach ($employees as $e)
                                                             @if (!empty($e->kj))
@@ -285,10 +285,10 @@
                                     @if (session('isadmin'))
                                         <div class="form-group" id="section-lesson">
                                             <div class="row">
-                                                <div class="col-lg-2 d-flex justify-content-center align-items-center text-monospace font-weight-bolder">
+                                                <div class="col-lg-2 col-12 d-flex justify-content-center align-items-center text-monospace font-weight-bolder">
                                                     Lesson
                                                 </div>
-                                                <div class="col-lg-9 d-flex justify-content-center align-items-center">
+                                                <div class="col-lg-9 col-10 d-flex justify-content-center align-items-center">
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
@@ -299,7 +299,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-1 d-flex justify-content-center align-items-center">
+                                                <div class="col-lg-1 col-2 d-flex justify-content-center align-items-center">
                                                     <button type="button" class="btn btn-success" id="btn-add-lesson">
                                                         <i class="fas fa-plus"></i>
                                                     </button>
@@ -313,26 +313,26 @@
                                 </div>
                                 <div id="test" role="tabpanel" class="tab-pane fade col-lg-12 border border-info p-3" style="border-radius:15px;">
                                     <div class="form-group row">
-                                        <div class="col-lg-2 d-flex justify-content-center align-items-center">
+                                        <div class="col-lg-2 col-12 d-flex justify-content-center align-items-center">
                                             Pretest Link
                                         </div>
-                                        <div class="col-lg-9 d-flex justify-content-center align-items-center">
+                                        <div class="col-lg-9 col-10 d-flex justify-content-center align-items-center">
                                             <input type="text" name="pretest_link" id="pretest_link" class="form-control" placeholder="Insert Pre Test Link" {{ (!session('isadmin'))?"readonly":false }}>
                                         </div>
-                                        <div class="col-lg-1 d-flex justify-content-center align-items-center">
+                                        <div class="col-lg-1 col-2 d-flex justify-content-center align-items-center">
                                             <button type="button" class="btn btn-info btn-go-to" id="pretest_link">
                                                 <i class="fas fa-external-link-alt"></i>
                                             </button>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <div class="col-lg-2 d-flex justify-content-center align-items-center">
+                                        <div class="col-lg-2 col-12 d-flex justify-content-center align-items-center">
                                             Posttest Link
                                         </div>
-                                        <div class="col-lg-9 d-flex justify-content-center align-items-center">
+                                        <div class="col-lg-9 col-10 d-flex justify-content-center align-items-center">
                                             <input type="text" name="posttest_link" id="posttest_link" class="form-control" placeholder="Insert Post Test Link" {{ (!session('isadmin'))?"readonly":false }}>
                                         </div>
-                                        <div class="col-lg-1 d-flex justify-content-center align-items-center">
+                                        <div class="col-lg-1 col-2 d-flex justify-content-center align-items-center">
                                             <button type="button" class="btn btn-info btn-go-to" id="posttest_link">
                                                 <i class="fas fa-external-link-alt"></i>
                                             </button>
@@ -353,10 +353,10 @@
                                         </div>
                                         <div class="form-group" id="section-task">
                                             <div class="row">
-                                                <div class="col-lg-2 d-flex justify-content-center align-items-center text-monospace font-weight-bolder">
+                                                <div class="col-lg-2 col-12 d-flex justify-content-center align-items-center text-monospace font-weight-bolder">
                                                     Task
                                                 </div>
-                                                <div class="col-lg-9 d-flex justify-content-center align-items-center">
+                                                <div class="col-lg-9 col-10 d-flex justify-content-center align-items-center">
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
@@ -367,7 +367,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-1 d-flex justify-content-center align-items-center">
+                                                <div class="col-lg-1 col-2 d-flex justify-content-center align-items-center">
                                                     <button type="button" class="btn btn-success" id="btn-add-task">
                                                         <i class="fas fa-plus"></i>
                                                     </button>
@@ -382,7 +382,7 @@
                                 <div id="result" role="tabpanel" class="tab-pane fade col-lg-12 border border-info p-3" style="border-radius:15px;">
                                     <div class="row" id="section-employees-table">
                                         <div class="col-lg-12">
-                                            <table class="table table-bordered table-striped">
+                                            <table class="table table-bordered table-striped table-responsive">
                                                 <thead>
                                                     <tr class="table-info">
                                                         <th>No</th>
@@ -557,10 +557,10 @@
                 e.preventDefault();
                 $("#section-lesson").append(`
                     <div class="row mt-3 components-lesson" id="`+intLesson+`">
-                        <div class="col-lg-2 d-flex justify-content-center align-items-center text-monospace font-weight-bolder">
+                        <div class="col-lg-2 col-12 d-flex justify-content-center align-items-center text-monospace font-weight-bolder">
                             Lesson
                         </div>
-                        <div class="col-lg-9 d-flex justify-content-center align-items-center">
+                        <div class="col-lg-9 col-10 d-flex justify-content-center align-items-center">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
@@ -571,7 +571,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-1 d-flex justify-content-center align-items-center">
+                        <div class="col-lg-1 col-2 d-flex justify-content-center align-items-center">
                             <button type="button" class="btn btn-danger btn-delete-lesson" id="`+intLesson+`">
                                 <i class="far fa-trash-alt"></i>
                             </button>
@@ -606,6 +606,9 @@
                         data:{
                             "_token" : token
                         },
+                        beforeSend: () => {
+                            $("body").css("cursor","wait");
+                        },
                         success: function(result){
                             if(result){
                                 const urlshow = "{{ route('dashtrainings.index') }}/"+training_id+"/showlesson";
@@ -614,15 +617,17 @@
                                     method: "get",
                                     datatype: "json",
                                     success: function(result){
+                                        $("body").css("cursor","default");
                                         // UI components for table lesson
                                         if(result.lessons.length > 0){
-                                            createTableLesson("#section-lesson-table",".tbody-lessontab#idtbody",result.lessons,"{{ route('dashtrainings.index') }}");
+                                            createTableLesson("#section-lesson-table",".tbody-lessontab#idtbody",result.lessons,"{{ route('dashtrainings.index') }}",isadmin);
                                         } else{
                                             $("#section-lesson-table").empty();
                                         }
                                     }
                                 });
                             } else{
+                                $("body").css("cursor","default");
                                 alert('Failed delete file lesson');
                             }
                         }
@@ -641,10 +646,10 @@
                 e.preventDefault();
                 $("#section-task").append(`
                     <div class="row mt-3 components-task" id="`+intTask+`">
-                        <div class="col-lg-2 d-flex justify-content-center align-items-center text-monospace font-weight-bolder">
+                        <div class="col-lg-2 col-12 d-flex justify-content-center align-items-center text-monospace font-weight-bolder">
                             Task
                         </div>
-                        <div class="col-lg-9 d-flex justify-content-center align-items-center">
+                        <div class="col-lg-9 col-10 d-flex justify-content-center align-items-center">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
@@ -655,7 +660,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-1 d-flex justify-content-center align-items-center">
+                        <div class="col-lg-1 col-2 d-flex justify-content-center align-items-center">
                             <button type="button" class="btn btn-danger btn-delete-task" id="`+intTask+`">
                                 <i class="far fa-trash-alt"></i>
                             </button>
@@ -690,6 +695,9 @@
                         data:{
                             "_token" : token
                         },
+                        beforeSend: () => {
+                            $("body").css("cursor","wait");
+                        },
                         success: function(result){
                             if(result){
                                 const urlshow = "{{ route('dashtrainings.index') }}/"+training_id+"/showTask";
@@ -698,15 +706,17 @@
                                     method: "get",
                                     datatype: "json",
                                     success: function(result){
+                                        $("body").css("cursor","default");
                                         // UI components for table task
                                         if(result.tasks.length > 0){
-                                            createTableTask("#section-task-table",".tbody-tasktab#idtbody",result.tasks,"{{ route('dashtrainings.index') }}");
+                                            createTableTask("#section-task-table",".tbody-tasktab#idtbody",result.tasks,"{{ route('dashtrainings.index') }}",isadmin);
                                         } else{
                                             $("#section-task-table").empty();
                                         }
                                     }
                                 });
                             } else{
+                                $("body").css("cursor","default");
                                 alert('Failed delete file task');
                             }
                         }
@@ -793,20 +803,22 @@
                 const idrt = $(this).val();
                 const prefix = "{{ route('dashtrainings.index') }}";
                 const urlx = `${prefix}/${idrt}/datareturntask`;
-                $.ajax({
-                    url: urlx,
-                    method: 'get',
-                    dataType: 'json',
-                    beforeSend: () => {
-                        $("#section-rt-lines").html(`<div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                            <span class="sr-only">Loading...</span>
-                        </div>
-                        <div class="spinner-grow text-danger" style="width: 3rem; height: 3rem;" role="status">
-                            <span class="sr-only">Loading...</span>
-                        </div>`);
-                    },
-                    success: result => createTableReturnTask(result.returntask,"#section-rt-lines",prefix)
-                });
+                if(idrt != ""){
+                    $.ajax({
+                        url: urlx,
+                        method: 'get',
+                        dataType: 'json',
+                        beforeSend: () => {
+                            $("#section-rt-lines").html(`<div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <div class="spinner-grow text-danger" style="width: 3rem; height: 3rem;" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>`);
+                        },
+                        success: result => createTableReturnTask(result.returntask,"#section-rt-lines",prefix)
+                    });
+                }
             });
 
             // download return task file (admin)
@@ -814,6 +826,11 @@
                 e.preventDefault();
                 const url = $(this).data('url');
                 window.open(url);
+            });
+
+            // change cursor while submit form dashboard
+            $("form[name='frmDashTraining']").on('submit',function(){
+                $("body").css("cursor","wait");
             });
         });
     </script>

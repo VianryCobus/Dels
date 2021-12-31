@@ -15,7 +15,8 @@ class CreateTaskTrainingTable extends Migration
     {
         Schema::create('task_training', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('training_id')->constrained('trainings');
+            // $table->foreignId('training_id')->constrained('trainings');
+            $table->foreignId('training_id')->nullable();
             $table->string('task');
             $table->string('slug',191);
         });
