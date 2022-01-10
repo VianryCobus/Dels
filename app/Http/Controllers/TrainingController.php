@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\{Category,Training};
+use App\{Category,Training,User};
 use App\Http\Requests\TrainingRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -21,11 +21,14 @@ class TrainingController extends Controller
             '0' => 'Close',
             '1' => 'Open',
         ];
+        $employees = User::UsersDashboard();
+        $employees = collect($employees);
         return view('trainings.index', [
             'trainings' => Training::latest()->paginate(10),
             'categories' => Category::where('status','1')->get(),
             'arrstts' => $arrstts,
-            'request' => []
+            'request' => [],
+            'employees' => $employees
         ]);
     }
     public function search(Request $request)

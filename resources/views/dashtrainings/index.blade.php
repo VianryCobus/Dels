@@ -340,7 +340,6 @@
                                     </div>
                                 </div>
                                 <div id="assignment" role="tabpanel" class="tab-pane fade col-lg-12 border border-info p-3" style="border-radius:15px;">
-                                    @if (session('isadmin'))
                                         <div class="form-group" id="section-task-description">
                                             <div class="row">
                                                 <div class="col-lg-12 d-flex justify-content-start align-items-center text-monospace font-weight-bold mb-1">
@@ -351,6 +350,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    @if (session('isadmin'))
                                         <div class="form-group" id="section-task">
                                             <div class="row">
                                                 <div class="col-lg-2 col-12 d-flex justify-content-center align-items-center text-monospace font-weight-bolder">
