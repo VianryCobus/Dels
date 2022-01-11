@@ -1,9 +1,9 @@
 const createTableTask = (sectionHead,tbody,data,data_user,route,isadmin) => {
     let nofiletask = 1;
     // template or string Literals
-    let tHeaders = `<div class="col-lg-12 p-3">
+    let tHeaders = `<div class="col-lg-12 table-responsive p-3">
                         <p class="h6 my-2 font-weight-bolder">Data File Task</p>
-                        <table class="table table-bordered table-responsive">
+                        <table class="table table-bordered">
                             <thead>
                                 <tr class="table-info">
                                     <th>No</th>
@@ -128,9 +128,9 @@ const createOptionTask = (tasks,section) => {
 
 const createTableReturnTask = (data,section,prefix) => {
     let nofiletask = 1;
-    let tHeaders = `<div class="col-lg-12 p-3">
+    let tHeaders = `<div class="col-lg-12 table-responsive p-3">
                         <p class="h6 my-2 font-weight-bolder">Data File Return Task</p>
-                        <table class="table table-bordered table-responsive">
+                        <table class="table table-bordered">
                             <thead>
                                 <tr class="table-info">
                                     <th>No</th>

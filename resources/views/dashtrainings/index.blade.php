@@ -382,7 +382,7 @@
                                 <div id="result" role="tabpanel" class="tab-pane fade col-lg-12 border border-info p-3" style="border-radius:15px;">
                                     <div class="row" id="section-employees-table">
                                         <div class="col-lg-12">
-                                            <table class="table table-bordered table-striped table-responsive">
+                                            <table class="table table-bordered table-striped">
                                                 <thead>
                                                     <tr class="table-info">
                                                         <th>No</th>

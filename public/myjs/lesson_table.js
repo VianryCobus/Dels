@@ -1,9 +1,9 @@
 function createTableLesson(sectionHead,tbody,data,route,isadmin){
     let nofilelesson = 1;
     $(sectionHead).html(`
-        <div class="col-lg-12 p-3">
+        <div class="col-lg-12 p-3 table-responsive">
             <p class="h6 my-2 font-weight-bolder">Data File Lesson</p>
-            <table class="table table-bordered table-responsive">
+            <table class="table table-bordered">
                 <thead>
                     <tr class="table-info">
                         <th>No</th>
