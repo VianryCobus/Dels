@@ -28,7 +28,7 @@ class TrainingController extends Controller
             'categories' => Category::where('status','1')->get(),
             'arrstts' => $arrstts,
             'request' => [],
-            'employees' => $employees
+            'employees' => $employees,
         ]);
     }
     public function search(Request $request)
@@ -37,6 +37,8 @@ class TrainingController extends Controller
             '0' => 'Close',
             '1' => 'Open',
         ];
+        $employees = User::UsersDashboard();
+        $employees = collect($employees);
         $queryextra = "";
         if($request->filtername) :
             $queryextra .= "UPPER(name) LIKE '%" . strtoupper($request->filtername) . "%' AND ";
@@ -61,7 +63,8 @@ class TrainingController extends Controller
             'trainings' => $trainings,
             'categories' => Category::where('status','1')->get(),
             'arrstts' => $arrstts,
-            'request' => $request
+            'request' => $request,
+            'employees' => $employees,
         ]);
     }
 
